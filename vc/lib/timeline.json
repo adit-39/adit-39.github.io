@@ -1,0 +1,82 @@
+{
+  "timeline":
+  {
+    "headline":"Voice Conversion: Major Techniques to Date",
+    "type":"default",
+    "startDate":"",
+    "text": "",
+    "asset": {
+      "media":"http://www.csee.umbc.edu/wp-content/uploads/2011/11/speech.jpg",
+      "credit":"",
+      "caption":""
+    },
+    "date": [
+        {
+                "startDate":"1988",
+                "headline":"Voice Conversion Through Vector Quantization",
+                "text":"<b>Authors: Abe, Nakamura, Shikano, Kuwabara </b><br> 1. Technique involved mapping voice codebooks (from Vector Quantization) between speakers using Dynamic Time Warping distance between the two time series. <br> 2. The correspondences were accumulated as histograms which served as a weighting function. <br> 3. This function would be applied on a linear combination of vectors to achieve the conversion. <br>",
+                "asset":
+                {
+                    "media":"",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+        {
+                "startDate":"1994",
+                "headline":"Transformation of Formants for Voice Conversion Using Artificial Neural Networks",
+                "text":"<b>Authors: Narendranath, Murthy, Rajendran, Yegnarayana</b><br> 1. A formant is a concentration of acoustic energy around a particular frequency in the speech wave.<br> 2. System is a symmetric-looking ANN. Inputs are the source formants, outputs are the target formants. <br> 3. Trained using the traditional backpropagation algorithm. <br>",
+                "asset":
+                {
+                    "media":"",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+        {
+                "startDate":"1998,3",
+                "headline":"Continuous Probabilistic Transform for Voice Conversion",
+                "text":"<b>Authors: Stylianou, Cappe, Moulines</b><br> 1. Make use of GMMs (Simplified ergodic HMMs) which acts as a 'soft' classifier.<br> 2. The actual conversion is done similar to how Abe et. al carried out their conversion, but components are now clustered into Gaussians rather than individually considered as in the VQ approach. The parametric model and probability of class together are used to determine the converted envelope.<br> 3. The parameters of the conversion function are determined by minimization of the total quadratic spectral distortion between the converted envelopes and the target envelopes. DTW is applied for this.<br>",
+                "asset":
+                {
+                    "media":"",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+        {
+                "startDate":"1998,5",
+                "headline":"Spectral Voice Conversion for Text-To-Speech Synthesis",
+                "text":"<b>Authors: Abe, Nakamura, Shikano, Kuwabara </b><br> 1. Technique involved mapping voice codebooks (from Vector Quantization) between speakers using Dynamic Time Warping distance between the two time series. <br> 2. The correspondences were accumulated as histograms which served as a weighting function. <br> 3. This function would be applied on a linear combination of vectors to achieve the conversion. <br>",
+                "asset":
+                {
+                    "media":"",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+        {
+                "startDate":"2001",
+                "headline":"Voice Conversion Algorithm Based on GMM with Dynamic Frequency Warping of STRAIGHT Spectrum",
+                "text":"<b>Authors: Toda, Saruwatari, Shikano</b><br> 1. In VC with GMMs, quality of converted speech is degraded as the spectrum is exceedingly smoothed.<br> 2. Use DFW to avoid over-smoothing. Residual spectrum (difference between GMM and DFW spectra) avoids deterioration of conversion accuracy. <br>",
+                "asset":
+                {
+                    "media":"",
+                    "credit":"",
+                    "caption":""
+                }
+            },
+        {
+                "startDate":"2005",
+                "headline":"Spectral Conversion Based on Maximum Likelihood Estimation Considering Global Variance of Converted Parameter",
+                "text":"<b>Authors: Toda, Black, Tokuda</b><br> 1. Spectral Conversion using GMM.<br> 2. Smooth Spectral sequence can be obtained from MLE using dyamic features to the GMM-based mapping, but oversmoothing will continue to be an issue due to ML based parameter estimation.<br> 3. To avoid this, ML based conversion taking account global variance of the converted parameter in each utterance.<br>",
+                "asset":
+                {
+                    "media":"",
+                    "credit":"",
+                    "caption":""
+                }
+            }
+        ]
+    }
+}

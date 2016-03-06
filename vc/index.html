@@ -32,6 +32,22 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+        <script type="text/javascript" src="lib/js/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready( function(){
+          $('#male').click(function(){
+               $('#a1').trigger('play');
+             });
+          $('#female').click(function(){
+               $('#a2').trigger('play');
+             });
+          $('#converted').click(function(){
+               $('#a3').trigger('play');
+          });
+        });
+        </script>
+
 	</head>
 
 	<body>
@@ -43,7 +59,7 @@
 
 				<header>
 					<img src="img/PES_Logo.png" data-background-transition="fade" width='120' height='120'
-						 style="border:3px solid black;  position:absolute; top:0px; left:1000px;" ></img>
+						 style="border:3px solid black;  position:absolute; top:0px; left:1000px;" />
 				</header>
 				<footer style="position:absolute; bottom:1px; font-size:18px;">Dept. of Computer Science and Engg.</footer>
 
@@ -74,26 +90,26 @@
 					<section>
 						<h3 style="font-style:italic; font-face:bold">2.  Solution Timeline</h3>
 						<ul>
-                            <li><p class="fragment highlight-blue">A Typical Voice Conversion System</p></li>
-							<li><p class="fragment highlight-blue">Brief Overview of the technologies that were used at some point to solve VC</p></li>
-							<li><p class="fragment highlight-blue">Evolutions of Solutions</p></li>
-                            <li><p class="fragment highlight-blue">Traditonal vs Modern Techniques</p></li>
+                            <li><p class="fragment grow">A Typical Voice Conversion System</p></li>
+							<li><p class="fragment grow">Brief Overview of the technologies that were used at some point to solve VC</p></li>
+							<li><p class="fragment grow">Evolutions of Solutions</p></li>
+                            <li><p class="fragment grow">Traditonal vs Modern Techniques</p></li>
 						</ul>
 					</section>
 					<section>
 						<h3 style="font-style:italic; font-face:bold">3.  Current State-Of-The-Art</h3>
 						<ul>
-							<li><p class="fragment highlight-blue"> Conception of the Solution </p></li>
-							<li><p class="fragment highlight-blue"> Brief Insight into Solution </p></li>
-							<li><p class="fragment highlight-blue"> Overview of Technology </p></li>
-							<li><p class="fragment highlight-blue"> Solution Architecture </p></li>
-							<li><p class="fragment highlight-blue"> Results and Comparison with Earlier Approaches</p></li>
-							<li><p class="fragment highlight-blue"> Conclusion </p></li>
+							<li><p class="fragment grow"> Conception of the Solution </p></li>
+							<li><p class="fragment grow"> Insight into Solution </p></li>
+							<li><p class="fragment grow"> Overview of Technology </p></li>
+							<li><p class="fragment grow"> Solution Architecture </p></li>
+							<li><p class="fragment grow"> Results </p></li>
+							<li><p class="fragment grow"> Conclusion </p></li>
 						</ul>
 					</section>
 				</section>
 
-				<section>
+				<section data-background="#cc6600">
 					<h2>Introduction</h2>
 				</section>
                 <section>
@@ -105,8 +121,12 @@
                         <b><u>Extended </u></b> : To modify (transform) the <i>characteristics</i> of the speech signal. (Eg. changing emotion/ pronunciation)
                     </p>
                     <div>
-                        <div style="float:left; padding:10px"><img width=200 height=250 src="img/bart.jpg" /></div>
-                        <div style="float:right; padding:10px"><img width=200 height=250 src="img/lisa.png" /></div>
+                        <div class="fragment" style="float:left; padding:10px"><img id="male" width=200 height=250 src="img/spanish.jpg" /></div>
+						<div style="float:left; padding:10px" id="wrap1"><audio id="a1" src="audio/T6B79330025.es1.wav" hidden="true" preload="auto"></audio></div>
+                        <div class="fragment" style="float:left; padding:10px"><img id="female" width=200 height=250 src="img/lisa.png" /></div>
+						<div style="float:left; padding:10px" id="wrap2"><audio id="a2" src="audio/T6B75330154.en.wav" hidden="true" preload="auto"></audio></div>
+						<div class="fragment" style="float:right; padding:10px"><img id="converted" width=200 height=250 src="img/bart.jpg" /></div>
+						<div style="float:left; padding:10px" id="wrap3"><audio id="a3" src="audio/SIE1_CVC_EN_75-79.cnv.08.wav" hidden="true" preload="auto"></audio></div>
                     </div>
                 </section>
 
@@ -147,33 +167,26 @@
                     </p>
 				</section>
 
-                <section>
-                    <h2>Literature Survey</h2>
-                    <ul>
-                        <li><b>VQ mapping</b> <br>M. Abe, S. Nakamura, K. Shikano and H. Kuwabara, “Voice conversion through vector Quantization,”in Proc. of ICASP, New York, NY, USA, pp. 655-658, Apr. 1988.</li>
-                        <li><b>Linear Multivariate Regression (LMR), Dynamic Frequency Warping (DFW)</b><br>N. Iwahashi and Y. Sagisaka, “ Speech spectrum transformation based on speaker interpolation.” in Proc. ICASSP94. 1994. </li>
-                        <li><b>Fuzzy VQ</b><br>H. Kuwabara and Y. Sagisaka, “ Acoustic characteristics of speaker individuality: Control and conversion, “ Speech Communication, vol,19, no. 2, pp. 165-173, 1995.</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2> Literature Survey</h2>
-                    <ul>
-                        <li><b> Artificial Neural Network based </b> <br> M. Narendranath, H. A. Murthy, S. Rajendran, and B. Yegnanarayana, “Transformation of formants for voice conversion using artificial neural networks,” Speech Commun., vol. 16, no. 2, pp. 207–216, 1995.</li>
-                        <li><b>Gaussian Mixture Model based</b><br>Y. Stylianou, “Continuous probabilistic transform for voice conversion,”IEEE Trans. on Speech and Audio Processing, vol. 6, no. 2, pp. 131-142, Mar. 1998.</li>
-                        <li><b>GMM based</b><br>A. Kain and M. W. Macon, “Spectral Voice Conversion for Text-to-Speech   Synthesis,” in Proc. of ICASSP, vol. 1, pp. 285-288, Seattle, Washington, USA,  May 1998.</li>
-
-                    </ul>
+                <section data-background="#cc6600">
+                    <h2>Solution Timeline</h2>
                 </section>
 
                 <section>
-                    <h2> Literature Survey </h2>
-                    <ul>
-                        <li><b>GMM and DFW</b><br>T. Toda, H. Saruwatari, and K. Shikano, “Voice Conversion Algorithm based on  Gaussian Mixture Model with Dynamic Frequency Warping of STRAIGHT spectrum, “in Proc. IEEE Int. Conf. Acoust, Speech, Signal Processing, (Salt Lake City, USA), pp. 841-844,2001.</li>
-                        <li><b>GMM and considering Globe Variance</b><br>T. Toda, A. Black, and K. Tokuda, “ Spectral Conversion Based on Maximum Likelihood Estimation considering Global Variance of Converted Parameter,” in Proc. IEEE Int. Conf. Acoust. Speech, Signal Processing, (Philadelphia, USA), pp. 9-12, 2005.</li>
-                    </ul>
+                    <h3>A Typical VC System</h3>
+                    <img src="img/VCSys.png" height="600" />
                 </section>
 
-				<section>
+                <section>
+                    <h3>Timeline</h3>
+                   <iframe src='//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1YH-TScUtxNmpIihjsTvb0m2bFoC7niswdmGKSE9g2ME&font=Default&lang=en&initial_zoom=2&height=625' width='100%' height='625' frameborder='0'></iframe>
+                   <!--<div data-timeline="lib/timeline.json"></div>-->
+                </section>
+
+                <section>
+                    <h3>Traditional vs Modern Systems</h3>
+                </section>
+
+				<section data-background="#b5533c">
 					<h1>THE END</h1>
 				</section>
 
@@ -203,7 +216,7 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/notes/notes.js', async: true },
 				]
 			});
 
