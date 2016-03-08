@@ -76,6 +76,17 @@
                     "credit":"",
                     "caption":""
                 }
+            },
+        {
+                "startDate":"2013",
+                "headline":"Voice Conversion in High-order Eigen Space Using Deep Belief Nets",
+                "text":"<b>Authors: Nakashika, Takashima, Takiguchi, Ariki</b><br>1. The core idea was to shift conversion of features from Source to Target to the eigen space instead of cepstral space to facilitate easier transformation.<br>2. A set of Deep Belief Networks were trained to perform the shift of space (and vice versa) and NN to actually perform the conversion in the eigen space.",
+                "asset":
+                {
+                    "media":"",
+                    "credit":"",
+                    "caption":""
+                }
             }
         ]
     }

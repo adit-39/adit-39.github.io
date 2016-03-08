@@ -91,8 +91,7 @@
 						<h3 style="font-style:italic; font-face:bold">2.  Solution Timeline</h3>
 						<ul>
                             <li><p class="fragment grow">A Typical Voice Conversion System</p></li>
-							<li><p class="fragment grow">Brief Overview of the technologies that were used at some point to solve VC</p></li>
-							<li><p class="fragment grow">Evolutions of Solutions</p></li>
+							<li><p class="fragment grow">Evolution of Solutions</p></li>
                             <li><p class="fragment grow">Traditonal vs Modern Techniques</p></li>
 						</ul>
 					</section>
@@ -100,9 +99,8 @@
 						<h3 style="font-style:italic; font-face:bold">3.  Current State-Of-The-Art</h3>
 						<ul>
 							<li><p class="fragment grow"> Conception of the Solution </p></li>
-							<li><p class="fragment grow"> Insight into Solution </p></li>
-							<li><p class="fragment grow"> Overview of Technology </p></li>
-							<li><p class="fragment grow"> Solution Architecture </p></li>
+							<li><p class="fragment grow"> Overview of Related Technology</p></li>
+							<li><p class="fragment grow"> Solution </p></li>
 							<li><p class="fragment grow"> Results </p></li>
 							<li><p class="fragment grow"> Conclusion </p></li>
 						</ul>
@@ -177,13 +175,131 @@
                 </section>
 
                 <section>
-                    <h3>Timeline</h3>
-                   <iframe src='//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1YH-TScUtxNmpIihjsTvb0m2bFoC7niswdmGKSE9g2ME&font=Default&lang=en&initial_zoom=2&height=625' width='100%' height='625' frameborder='0'></iframe>
-                   <!--<div data-timeline="lib/timeline.json"></div>-->
+                    <h3>Evolution of VC Systems</h3>
+                    <iframe src='//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1YH-TScUtxNmpIihjsTvb0m2bFoC7niswdmGKSE9g2ME&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' frameborder='0'></iframe>
+                   <!--<div data-timeline="lib/timeline.json" style="width:'500px'"></div>-->
                 </section>
 
                 <section>
                     <h3>Traditional vs Modern Systems</h3>
+                    <ul>
+                        <p>An interesting lesson learnt from this timeline is with regards to the application of systems any ML problem.
+                        A couple of decades ago, the major approaches to solve VC began with Vector Quantization (based on k-means clustering) in combination with statistical approaches.
+                            Gradually, the approach shifted to Neural Nets and then to GMMs to capture the waveforms.
+                            Finally, a more non-linear approach was built using Deep Belief Nets.
+                        </p>
+                        <p>
+                            The above actually prove that at any instance in time, the emerging technologies are very potent in their ability to improve the performance of AI problems that haven't been satisfactorily solved before.
+                        </p>
+                    </ul>
+                </section>
+
+				<section data-background="#cc6600">
+					<h2>Current State-of-the-Art</h2>
+				</section>
+
+                <section>
+                    <h3>Conception</h3>
+                    <ul>
+                        <li>The approaches based on GMMs rely on "shallow" voice conversions.<br><p><i>Shallow:</i> methods are based on piecewise linear transformations</p></li>
+                        <li>Two Hypothesis:
+                            <ol>
+                                <li>Human speech is more a non-linear entity, hence, a non-linear VC model is better suited to the problem of VC.</li>
+                                <li>Discriminative models are more suited to this task than Generative models.</li>
+                            </ol>
+                        </li>
+                        <li class="fragment">Proof?</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Conception (Contd.)</h3>
+                    <ul>
+                        <li>GMM Based approaches often suffer from over-smoothing due to feature learning through Gaussian mixtures which cause outputs to fall near the mean of the resultant Gaussian.</li>
+                        <li>These approaches also suffer from over-fitting as its easy to overshoot the optimum number of Gaussians to overfit training data while training.</li>
+                        <li>The work on NN based Voice Conversion (presented in the timeline) is known to perform much better than the GMM based VC.</li>
+                        <li>Although NNs may also suffer through problem of over-fitting, it can be avoided by carefully preparing the training data and tweaking hyperparameters.</li>
+                    </ul>
+                </section>
+
+				<section>
+					<h3>Conception (Contd.)</h3>
+					<ul>
+						<li>The authors decided to extend their previous work in which they used RBMs to learn higher order features to reduce the problem of over-fitting. A concatenating NN was used as well.</li>
+						<li>They improved on the same work to systematically capture temporal as well as latent (deep) relationships between source and target speech by retaining the concatenating NN, but replacing the vanilla RBMs by Speaker Dependent Recurrent Temporal RBMs.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Let's Get More Technical!</h3>
+					<ul>
+						<li><div><span><u><i><b>Restricted Boltzmann Machines (RBMs):</b></i></u></span></div></li>
+                        <li>Boltzmann Machines are a form of Markov Random Fields whose energy function is of a linear form.</li>
+                        <li>Simple BMs are made more powerful by arranging them in such a manner that not all units have an observable component to them i.e. they are arranged in various hidden layers that represent latent behavior that influence the observables but are not themselves directly observable.</li>
+					</ul>
+				</section>
+
+                <section>
+                    <h3>Technical Background (Contd.)</h3>
+                    <ul>
+                        <li>These more powerful BMs will become hard to train if all connections are maintained. So, the connections are restricted such that all units from one layer are connected to all other units from another layer. Hence the name "Restricted Boltzmann Machines".</li>
+                        <div><div style="width:80%; margin: 0 auto;"><img src="img/bm_rbm.jpg" width="650px" /></div></div>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Technical Background (Contd.)</h3>
+                    <p>So how is RBM different from a NN with hidden layers?</p>
+                    <p class="fragment">RBMs are also Neural Nets! However, they are not interpreted as feedforward networks, but more like bipartite graphs where the idea is to learn the joint probability distribution of hidden and input variables.</p>
+                    <p class="fragment">Not only this, RBMs have a different set of training algorithms. Furthermore, RBMs have the capability to learn representations and generate samples (Generative model), but the trained weights can also be used in the feedforward sense.</p>
+                </section>
+
+                <section>
+                    <h3>Building up!</h3>
+                    <ul>
+ 						<li><div><span><u><i><b>Temporal RBMs (TRBMs):</b></i></u></span></div></li>
+                        <li>A TRBM is a sequence of RBMs arranged in such a way that at a given timestamp, the RBMs biases depend only on the state of the RBM at the previous timestep.</li>
+                        <li>They are analogous to HMMs but with an infinitely large state space and compact emission and transition probabilities. However, they are exponentially expensive to train and hence exact inference is hard.</li>
+                        <div><div style="width:50%; margin: 0 auto;"><img src="img/trbm.png" width="400px" /></div></div>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Pre-Heating the Oven!</h3>
+                    <ul>
+                        <li><div><span><u><i><b>Recurrent Temporal RBMs (RTRBMs):</b></i></u></span></div></li>
+                        <li>RTRBMs are an extension to TRBMs that are simple to train and infer from. They are designed much like Recurrent Neural Networks and have a set of weights from hidden of previous timestep to hidden of current timestep which make things easier in terms of the algorithmic design and complexity.</li>
+                        <li>RTRBMs are therefore, not only capable of capturing the latent relationships in terms of hidden abstractions, but also can now capture latent temporal relationships, hence making them a good candidate for voice based complex tasks, such as the one for VC.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Recurrent Temporal Restricted Boltzmann Machines</h3>
+                    <div>
+                        <div style="float:left"><img width="500" src="img/rtrbm.png" /></div>
+                        <div style="float:right"><img width="500" src="img/rtrbm_2.png" /></div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Actual Solution</h3>
+                    <ul>
+                        <li>The architecture consists of individual Speaker-Dependant RTRBMs.</li>
+                        <li>By this, it is meant that the RTRBMs are trained separately on each speaker beforehand.</li>
+                    </ul>
+                    <div>
+                        <img src="img/archi1.png" align="right" height="250px"/>
+                        <span style="padding:10px">1. The feature h<sub>x</sub><sup>(t)</sup> captures linguistic information</span><br/>
+                        <span style="padding:10px">2. B, C and h together capture temporal information</span><br/>
+                        <span style="padding:10px">3. W and h capture latent abstract information</span><br/>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Actual Solution</h3>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
 
 				<section data-background="#b5533c">
@@ -217,6 +333,7 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'lib/js/reveal-timeline.js', condition: function(){ return !!document.querySelector( '[data-timeline]' );} } //, js: 'lib/js/timeline-min.js', css: 'lib/css/timeline.css'}
 				]
 			});
 
