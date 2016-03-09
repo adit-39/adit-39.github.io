@@ -110,7 +110,8 @@
 				<section data-background="#cc6600">
 					<h2>Introduction</h2>
 				</section>
-                <section>
+                
+                <section data-background="#004466">
                     <h3>What is Voice Conversion?</h3>
                     <p>
                         <b><u>General Definition </u></b> : Technique to modify the speech signal of one speaker (source) to sound like that of another speaker (target).
@@ -128,7 +129,7 @@
                     </div>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>What are the Goals of Voice Conversion?</h3>
                     <p>
                         <b>Ultimate Goal </b>: The exact same content spoken by the source should be emitted by the VC System in the target's so that it passes the Turing Test.
@@ -143,7 +144,7 @@
                     </p>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Applications around Voice Conversion</h3>
                     <ol>
                         <li> <u>Text-To-Speech Systems (TTS)</u> <br><p>In these systems, the content to be spoken is generated as text. Speech Synthesis is hard, and extending that to multiple voices would make it that much harder. Hence, generate one voice, convert to others.</p></li>
@@ -151,7 +152,7 @@
                     </ol>
                 </section>
 
-				<section>
+				<section data-background="#004466">
 					<h2>Possible Misuse of VC</h2>
 
 					<blockquote>
@@ -169,18 +170,18 @@
                     <h2>Solution Timeline</h2>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>A Typical VC System</h3>
                     <img src="img/VCSys.png" height="600" />
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Evolution of VC Systems</h3>
                     <iframe src='//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1YH-TScUtxNmpIihjsTvb0m2bFoC7niswdmGKSE9g2ME&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' frameborder='0'></iframe>
                    <!--<div data-timeline="lib/timeline.json" style="width:'500px'"></div>-->
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Traditional vs Modern Systems</h3>
                     <ul>
                         <p>An interesting lesson learnt from this timeline is with regards to the application of systems any ML problem.
@@ -198,7 +199,7 @@
 					<h2>Current State-of-the-Art</h2>
 				</section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Conception</h3>
                     <ul>
                         <li>The approaches based on GMMs rely on "shallow" voice conversions.<br><p><i>Shallow:</i> methods are based on piecewise linear transformations</p></li>
@@ -212,7 +213,7 @@
                     </ul>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Conception (Contd.)</h3>
                     <ul>
                         <li>GMM Based approaches often suffer from over-smoothing due to feature learning through Gaussian mixtures which cause outputs to fall near the mean of the resultant Gaussian.</li>
@@ -222,7 +223,7 @@
                     </ul>
                 </section>
 
-				<section>
+				<section data-background="#004466">
 					<h3>Conception (Contd.)</h3>
 					<ul>
 						<li>The authors decided to extend their previous work in which they used RBMs to learn higher order features to reduce the problem of over-fitting. A concatenating NN was used as well.</li>
@@ -230,7 +231,7 @@
 					</ul>
 				</section>
 
-				<section>
+				<section data-background="#004466">
 					<h3>Let's Get More Technical!</h3>
 					<ul>
 						<li><div><span><u><i><b>Restricted Boltzmann Machines (RBMs):</b></i></u></span></div></li>
@@ -239,7 +240,7 @@
 					</ul>
 				</section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Technical Background (Contd.)</h3>
                     <ul>
                         <li>These more powerful BMs will become hard to train if all connections are maintained. So, the connections are restricted such that all units from one layer are connected to all other units from another layer. Hence the name "Restricted Boltzmann Machines".</li>
@@ -247,14 +248,14 @@
                     </ul>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Technical Background (Contd.)</h3>
                     <p>So how is RBM different from a NN with hidden layers?</p>
                     <p class="fragment">RBMs are also Neural Nets! However, they are not interpreted as feedforward networks, but more like bipartite graphs where the idea is to learn the joint probability distribution of hidden and input variables.</p>
                     <p class="fragment">Not only this, RBMs have a different set of training algorithms. Furthermore, RBMs have the capability to learn representations and generate samples (Generative model), but the trained weights can also be used in the feedforward sense.</p>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Building up!</h3>
                     <ul>
  						<li><div><span><u><i><b>Temporal RBMs (TRBMs):</b></i></u></span></div></li>
@@ -264,7 +265,7 @@
                     </ul>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Pre-Heating the Oven!</h3>
                     <ul>
                         <li><div><span><u><i><b>Recurrent Temporal RBMs (RTRBMs):</b></i></u></span></div></li>
@@ -273,7 +274,7 @@
                     </ul>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Recurrent Temporal Restricted Boltzmann Machines</h3>
                     <div>
                         <div style="float:left"><img width="500" src="img/rtrbm.png" /></div>
@@ -281,11 +282,12 @@
                     </div>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Actual Solution</h3>
                     <ul>
+                        <li>Encoder-Decoder kind of architecture.</li>
                         <li>The architecture consists of individual Speaker-Dependant RTRBMs.</li>
-                        <li>By this, it is meant that the RTRBMs are trained separately on each speaker beforehand.</li>
+                        <li>By this, it is meant that the RTRBMs are trained separately on each speaker beforehand (encoder-decoder ends).</li>
                     </ul>
                     <div>
                         <img src="img/archi1.png" align="right" height="250px"/>
@@ -295,14 +297,60 @@
                     </div>
                 </section>
 
-                <section>
+                <section data-background="#004466">
                     <h3>Actual Solution</h3>
                     <ul>
-                        <li></li>
+                        <li>Bridge between independent RTRBMs is made up by a Neural Net that maps the linguistic features between the two (as this needs to be kept common across both)</li>
+                        <li>Once individual trained components are aligned, the entire flow is fine-tuned using BPTT (Backpropagation Through Time).</li>
+                    </ul>
+                    <img src="img/archi2.png" align="center" height="250px" width="200px"/>
+                </section>
+
+                <section data-background="#004466">
+                    <h3>Experimental Results</h3>
+                    <ul>
+                        <li><b><u>Conditions:</u></b>    4 algorithms used: GMM based, Simple NN based, SD-RBM, RNN and SD-RTRBM.<br/>
+                            The 3 NN-based approaches each have 4 layers in total. Conversion types tried were M-F, M-M and F-F.</li>
+                        <li><b><u>Objective Evaluation Metric Used: Mel-Cepstral Distortion (MCD)</u></b>   [measure how close the converted vector was to the target vector in the mel-cepstral space]</li>
+                        <li><b><u>Subjective Evaluation Metric Used: Mean Opinion Score (MOS)</u></b></li>
                     </ul>
                 </section>
 
+                <section data-background="#004466">
+                    <h3>Experimental Results (Contd.)</h3>
+                    <div class="fragment">
+                         <div style="float:left; padding:10px"><img width=400 height=250 src="img/res1.png" /></div>
+                         <div style="float:left; padding:10px"><img width=400 src="img/res5.png" /></div>
+                    </div>
+                    <br/>
+                    <div class="fragment">
+                        <div style="float:left; padding:10px"><img width=400 height=350 src="img/res2.png" /></div>
+                    </div>
+                </section>
+
+                <section data-background="#004466">
+                    <h3>Experimental Results (Contd.)</h3>
+                    <div class="fragment">
+                        <div style="float:left; padding:10px"><img width=400 height=350 src="img/res3.png" /></div>
+                        <div style="float:left; padding:10px"><img width=400 height=350 src="img/res4.png" /></div>
+                    </div>
+                </section>
+
+                <section data-background="#004466">
+                    <h3>Conclusion</h3>
+                    <ul>
+                        <li>A state of the art, novel technique for VC was presented, which makes use of SD-RTRBMs and a NN to extract time-dependent unique speaker information from the sequential data.</li>
+                        <li>Experiments prove that this new approach is more effective, regardless of gender and in terms of MCD and MOS, than well-known approaches using GMMs, NNs, previous work on RBMs.</li>
+                        <li>The new approach can be thought of a special generative type of RNN applied to VC.</li>
+                    </ul>
+                </section>
+
+                <section data-background="#4d7e65">
+                    <h2>Wrapping Up and QA</h2>
+                </section>
+
 				<section data-background="#b5533c">
+                    <h2>THANK YOU</h2>
 					<h1>THE END</h1>
 				</section>
 
