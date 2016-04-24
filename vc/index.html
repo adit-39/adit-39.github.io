@@ -176,9 +176,71 @@
                 </section>
 
                 <section data-background="#004466">
-                    <h3>Evolution of VC Systems</h3>
-                    <iframe src='//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1YH-TScUtxNmpIihjsTvb0m2bFoC7niswdmGKSE9g2ME&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' frameborder='0'></iframe>
+                    <section>
+                        <h3>Evolution of VC Systems</h3>
+                    </section>
+                    <!--<iframe src='//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1YH-TScUtxNmpIihjsTvb0m2bFoC7niswdmGKSE9g2ME&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' frameborder='0'></iframe>-->
                    <!--<div data-timeline="lib/timeline.json" style="width:'500px'"></div>-->
+                    <section>
+                        <h3>1988: Voice Conversion Through Vector Quantization</h3>
+                        <h5><i>Authors: Abe, Nakamura, Shikano, Kuwabara</i></h5>
+                        <ul>
+                            <li>Technique involved mapping voice codebooks (from Vector Quantization) between speakers using Dynamic Time Warping distance between the two time series.</li>
+                            <li>The correspondences were accumulated as histograms which served as a weighting function.</li>
+                            <li>This function would be applied on a linear combination of vectors to achieve the conversion. </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>1994: Transformation of Formants for Voice Conversion Using Artificial Neural Networks</h3>
+                        <h5><i>Authors: Narendranath, Murthy, Rajendran, Yegnarayana</i></h5>
+                        <ul>
+                            <li>A formant is a concentration of acoustic energy around a particular frequency in the speech wave.
+                            <li>System is a symmetric-looking ANN. Inputs are the source formants, outputs are the target formants.</li>
+                            <li>Trained using the traditional backpropagation algorithm.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>1998: Continuous Probabilistic Transform for Voice Conversion</h3>
+                        <h5><i>Authors: Stylianou, Cappe, Moulines</i></h5>
+                        <ul>
+                            <li>Make use of GMM (Simplified ergodic HMM) which acts as a 'soft' classifier.</li>
+                            <li>The actual conversion is done similar to how Abe et. al carried out their conversion, but components are now clustered into Gaussians rather than individually considered as in the VQ approach.</li>
+                            <li>The parameters of the conversion function are determined by minimization of the total quadratic spectral distortion between the converted envelopes and the target envelopes. DTW is applied for this.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>1998: Spectral Voice Conversion for Text-To-Speech Synthesis</h3>
+                        <h5><i>Authors: Kain, Macon</i></h5>
+                        <ul>
+                            <li>Vector Quantize training data. Source and target vectors are aligned using DTW and GMMs were constructed and trained using EM algorithm.</li>
+                            <li>Spectral info converted in parameterized way using GMM, Pitch adjusted using mean and variance of target pitch</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>2001: Voice Conversion Algorithm Based on GMM with Dynamic Frequency Warping of STRAIGHT Spectrum </h3>
+                        <h5><i>Authors: Toda, Saruwatari, Shikano</i></h5>
+                        <ul>
+                            <li>In VC with GMMs, quality of converted speech is degraded as the spectrum is exceedingly smoothed.</li>
+                            <li>Use DFW to avoid over-smoothing. "Residual" spectrum (difference between GMM and DFW spectra) avoids deterioration of conversion accuracy.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>2005: Spectral Conversion Based on Maximum Likelihood Estimation Considering Global Variance of Converted Parameter </h3>
+                        <h5><i>Authors: Toda, Black, Tokuda</i></h5>
+                        <ul>
+                            <li>Spectral Conversion using GMM.</li>
+                            <li>Smooth Spectral sequence can be obtained from MLE using dyamic features to the GMM-based mapping, but oversmoothing will continue to be an issue due to ML based parameter estimation.</li>
+                            <li>To avoid this, ML based conversion taking account global variance of the converted parameter in each utterance.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>2013: Voice Conversion in High-order Eigen Space Using Deep Belief Nets</h3>
+                        <h5><i>Authors: Nakashika, Takashima, Takiguchi, Ariki</i></h5>
+                        <ul>
+                            <li>The core idea was to shift conversion of features from Source to Target to the eigen space instead of cepstral space to facilitate easier transformation.</li>
+                            <li>A set of Deep Belief Networks were trained to perform the shift of space (and vice versa) and NN to actually perform the conversion in the eigen space.</li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section data-background="#004466">
